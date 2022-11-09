@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Board {
     String boardMaterial1;
@@ -55,10 +56,33 @@ public class Board {
                 board.set(i, "x ");
             }
         }
+
         for (String s : board) {
             System.out.print(s);
         }
         return board;
+    }
+
+    public ArrayList<Integer> countTypes(ArrayList<String> board) {
+        int counterT1 = 0;
+        int counterT2 = 0;
+        int counterT3 = 0;
+        ArrayList<Integer> amountTypes = new ArrayList<>();
+        for (int i = 0; i < board.size(); i++) {
+            if (board.get(i).equals(boardMaterial1 + " ")) {
+                counterT1++;
+            }
+            if (board.get(i).equals(boardMaterial2 + " ")) {
+                counterT2++;
+            }
+            if (board.get(i).equals(boardMaterial3 + " ")) {
+                counterT3++;
+            }
+        }
+        amountTypes.add(counterT1);
+        amountTypes.add(counterT2);
+        amountTypes.add(counterT3);
+        return amountTypes;
     }
 
     public void firstBoard() {
